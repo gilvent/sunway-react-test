@@ -1,0 +1,49 @@
+.container {
+  font-size: 14px;
+}
+.container .header {
+  font-size: 18px;
+}
+.container .shop-list {
+   list-style: none;
+   margin-left: -15px;
+}
+.container .shop-list li.item {
+  color: green;
+}
+.container .shop-list .item {
+/* Explain why does this color not works, and how to fix make it work on 1st list */
+/*
+  Answer:
+  This does not work because '.container .shop-list li.item' selector
+  has higher css specificity than '.container .shop-list .item'
+*/
+   color: blue;
+}
+/*
+  Answer: Fix to make it work on 1st list
+*/
+.container .shop-list:first-child li.item {
+  color: blue;
+}
+
+/* Write styling make every other line give background color to next one */
+/* Answer:
+  I actually don't fully understand the question. 
+  But I expect this to be a design where one row uses text color and the other row uses background color.
+  The stylings would be as follows:
+*/
+
+.shop-list li.item {
+  padding: 4px;
+}
+
+.container .shop-list:nth-child(1) li.item:nth-child(2n) {
+  background-color: blue;
+  color: #fff;
+}
+
+.container .shop-list:nth-child(2) li.item:nth-child(2n) {
+  background-color: green;
+  color: #fff;
+}
